@@ -3,6 +3,8 @@ package com.theironyard.entities;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  * Created by vajrayogini on 3/16/16.
@@ -20,9 +22,22 @@ public class AnonFile {
     @Column(nullable = false)
     String originalFilename;
 
-    public AnonFile(String filename, String originalFilename) {
+    @Column(nullable = false)
+    LocalDateTime dateTime;
+
+    @Column(nullable = false)
+    String comment;
+
+    @Column
+    boolean isPermanent;
+
+    public AnonFile(String filename, String originalFilename, String comment, LocalDateTime dateTime, boolean isPermanent) {
         this.filename = filename;
         this.originalFilename = originalFilename;
+        this.comment = comment;
+        this.dateTime = dateTime;
+        this.isPermanent = isPermanent;
+
     }
 
     public AnonFile() {
@@ -50,5 +65,29 @@ public class AnonFile {
 
     public void setOriginalFilename(String originalFilename) {
         this.originalFilename = originalFilename;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public boolean isPermanent() {
+        return isPermanent;
+    }
+
+    public void setPermanent(boolean permanent) {
+        isPermanent = permanent;
     }
 }
