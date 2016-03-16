@@ -59,11 +59,7 @@ public class AnonFileController {
         fos.write(file.getBytes());
         files.save(anonFile);
 
-//        if (anonFile.getId()) >
-//        if (anonFile.getDateTime() == null) {
-//
-//        }
-//        files.save(anonFile);
+
         response.sendRedirect("/");
     }
         @RequestMapping(path="/files", method = RequestMethod.GET)
